@@ -21,38 +21,42 @@ const search = 'a = 3, b = 25';
 ```
 
 ### Get data
+#### Synchronous
 ```javascript
-// Synchronous: single entry. 
-cb(registry.get(query)); // Potentailly trying to access data before being initialized
+// Single entry. Potentailly trying to access data before being initialized
+cb(registry.get(query));
 ```
 
 ```javascript
-// Synchronous: get first entry matching "key = value" pairs. 
+// Get first entry matching "key = value" pairs. 
 cb(registry.get(search));
 ```
 
 ```javascript
-// Synchronous: get array of entries matching "key = value" pairs. 
+// Get array of entries matching "key = value" pairs.
 cb(registry.filter(search));
 ```
 
+#### Asynchronous
+##### Callback
 ```javascript
-// Callback, single entry
+// Single entry
 registry.get(query, cb);
 ```
 
 ```javascript
-// Callback, multiple entries
+// Multiple entries
 registry.get(queries, cb);
 ```
 
+##### $.Deferred
 ```javascript
-// $.Deferred: single entry
+// Single entry
 registry.promise(query).then(cb);
 ```
 
 ```javascript
-// $.Deferred: multiple entries
+// Multiple entries
 registry.promise(queries).then(cb);
 ```
 
@@ -69,8 +73,6 @@ registry.set('id', {
 ```javascript
 registry.remove('id');
 ```
-
-
 
 ### Iterate through the defined entries
 ```javascript
