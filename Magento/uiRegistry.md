@@ -113,6 +113,6 @@ registry.contains(item); // Boolean
 ```javascript
 const item = registry.get(entry);
 
-registry.indexOf(item); // Boolean
+registry.indexOf(item);
 ```
 
